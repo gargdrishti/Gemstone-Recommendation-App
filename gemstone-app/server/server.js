@@ -16,8 +16,8 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://gemstone-app.vercel.app' ,
-     'http://localhost:3000'
-    //'https://gemstone-app-git-main-drishtigarg10.vercel.app'
+     'http://localhost:3000',
+    'https://gemstone-app-git-main-drishtigarg10.vercel.app'
      // your vercel URL
   ],
   credentials: true
