@@ -12,26 +12,30 @@ const app = express();
 
 // Middleware
 // Allow localhost and any Vercel preview/production domains dynamically.
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true); // allow non-browser or server-to-server requests
-    // Allow localhost dev server
-    if (origin.startsWith('http://localhost')) return callback(null, true);
-    // Allow Vercel preview/production domains (e.g. *.vercel.app)
-    if (origin.endsWith('.vercel.app')) return callback(null, true);
-    // Reject other origins
-    return callback(new Error('CORS policy: origin not allowed'), false);
-  },
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin) return callback(null, true); // allow non-browser or server-to-server requests
+//     // Allow localhost dev server
+//     if (origin.startsWith('http://localhost')) return callback(null, true);
+//     // Allow Vercel preview/production domains (e.g. *.vercel.app)
+//     if (origin.endsWith('.vercel.app')) return callback(null, true);
+//     // Reject other origins
+//     return callback(new Error('CORS policy: origin not allowed'), false);
+//   },
+//   credentials: true,
+// }));
+//   ],
+//   credentials: true
+// }));
+// app.use(cors({
+//   origin: [
+//     'https://gemstone-recommendation-app-drishtis-projects-38fcc71a.vercel.app'
 //   ],
 //   credentials: true
 // }));
 app.use(cors({
-  origin: [
-    'https://gemstone-recommendation-app-drishtis-projects-38fcc71a.vercel.app'
-  ],
-  credentials: true
+  origin: true,
+  credentials: true,
 }));
 app.use(express.json());
 
