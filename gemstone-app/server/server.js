@@ -11,14 +11,19 @@ connectDB();
 const app = express();
 
 // Middleware
-//app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:3000'], credentials: true }));
-// app.use(cors({
-//   origin: [
-//     'http://localhost:5173',
-//     'https://gemstone-app.vercel.app' ,
-//      'http://localhost:3000',
-//     'https://gemstone-app-git-main-drishtigarg10.vercel.app'
-//      // your vercel URL
+// Allow localhost and any Vercel preview/production domains dynamically.
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow non-browser or server-to-server requests
+    // Allow localhost dev server
+    if (origin.startsWith('http://localhost')) return callback(null, true);
+    // Allow Vercel preview/production domains (e.g. *.vercel.app)
+    if (origin.endsWith('.vercel.app')) return callback(null, true);
+    // Reject other origins
+    return callback(new Error('CORS policy: origin not allowed'), false);
+  },
+  credentials: true,
+}));
 //   ],
 //   credentials: true
 // }));
