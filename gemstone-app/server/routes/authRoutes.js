@@ -4,8 +4,8 @@ import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/register', register);
-router.post('/login', login);
+router.post('https://gemstone-recommendation-app.onrender.com/register', register);
+router.post('https://gemstone-recommendation-app.onrender.com/login', login);
 router.get('/me', protect, getMe);
 
 export default router;

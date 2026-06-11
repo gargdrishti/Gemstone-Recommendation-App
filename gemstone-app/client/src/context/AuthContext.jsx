@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const login = async (email, password) => {
-    const { data } = await api.post('/auth/login', { email, password });
+    const { data } = await api.post('https://gemstone-recommendation-app.onrender.com/auth/login', { email, password });
     localStorage.setItem('gemstone_token', data.token);
     localStorage.setItem('gemstone_user', JSON.stringify(data.user));
     setUser(data.user);
@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (payload) => {
-    const { data } = await api.post('/auth/register', payload);
+    const { data } = await api.post('https://gemstone-recommendation-app.onrender.com/auth/register', payload);
     localStorage.setItem('gemstone_token', data.token);
     localStorage.setItem('gemstone_user', JSON.stringify(data.user));
     setUser(data.user);
