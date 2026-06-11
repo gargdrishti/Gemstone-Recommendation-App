@@ -24,7 +24,7 @@ const app = express();
 // }));
 app.use(cors({
   origin: [
-    'https://gemstone-app.vercel.app'
+    'https://gemstone-recommendation-app-drishtis-projects-38fcc71a.vercel.app'
   ],
   credentials: true
 }));
